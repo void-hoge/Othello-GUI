@@ -10,7 +10,7 @@ protected:
 	const unsigned wldDepth;
 	const unsigned perfectDepth;
 public:
-	AI() : presearchDepth(7), normalDepth(11), wldDepth(18), perfectDepth(0){
+	AI() : presearchDepth(7), normalDepth(11), wldDepth(18), perfectDepth(16){
 	}
 	virtual void move(Board& board) = 0;
 };
