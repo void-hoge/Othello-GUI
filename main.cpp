@@ -6,13 +6,17 @@
 
 int main(int argc, char const *argv[]) {
 	Game game;
-	game.show();
-	for (int i = 0; i < 33; i++) {
+	// game.show();
+	while (!game.isGameover()) {
 		// game.playerMove();
 		game.aiMove();
-		game.show();
+		// game.show();
+		if (game.isGameover()) {
+			break;
+		}
 		game.aiMove();
-		game.show();
+		// game.show();
 	}
+	std::cout << "end" << '\n';
 	return 0;
 }

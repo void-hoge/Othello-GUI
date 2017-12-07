@@ -259,12 +259,12 @@ public:
 		}
 		return;
 	};
-
+	std::array<Log, 80> history;
 private:
 	uint64 data[2];
 	int turn;
 	color currentColor;
-	std::array<Log, 80> history;uint64 getFlipDiscs(uint64 put, color c) const{
+	uint64 getFlipDiscs(uint64 put, color c) const{
 		using namespace bm;
 		//left
 		uint64 	o = data[c],

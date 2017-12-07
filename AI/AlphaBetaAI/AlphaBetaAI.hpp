@@ -43,9 +43,9 @@ public:
 		sort(board, presearchDepth);
 		int eval, alpha = -intmax, beta = intmax;
 		uint64 p = 0;
-		if (60 - board.getTurn() <= wldDepth){
+		if (bm::bitCount(board.getBlank()) <= wldDepth){
 			limit = intmax;
-			if (60 - board.getTurn() <= perfectDepth) {
+			if (bm::bitCount(board.getBlank()) <= perfectDepth) {
 				Eval = new PerfectEvaluator();
 			}	else{
 				Eval = new WLDEvaluator();

@@ -93,6 +93,19 @@ inline void showbinary(uint64 t) {
 	cout << endl;
 	return;
 };
+
+inline std::vector<int> expander(uint64 t){
+	std::vector<int> v;
+	if (t == 0) {
+		return v;
+	}
+	for (int i = 0; i < 64; i++) {
+		if ((t & ((uint64)1 << i)) != 0) {
+			v.push_back(i);
+		}
+	}
+	return v;
+};
 };// namespace bitmanipulations
 
 #endif //BITMANIPULATION_HPP_INCLUDED
