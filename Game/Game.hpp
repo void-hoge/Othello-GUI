@@ -27,6 +27,9 @@ public:
 	void show(){
 		board.show();
 	}
+	bool isGameover(){
+		return board.isGameover();
+	}
 };
 
 #endif //GAME_HPP_INCLUDED
