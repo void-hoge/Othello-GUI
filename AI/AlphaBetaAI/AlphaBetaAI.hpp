@@ -65,6 +65,22 @@ public:
 		delete Eval;
 		Eval = NULL;
 		board.putDisc(p);
+
+		if (board.history[board.getTurn()-1].pass == true) {
+			std::cout << "pass" << '\n';
+			return;
+		}
+		std::cout << "move" << '\n';
+		std::vector<int> coordinates;
+		std::cout << board.history[board.getTurn()-1].putColor << '\n';
+		coordinates = bm::expander(board.history[board.getTurn()-1].putPos);
+		bm::outputCoordinate(coordinates[0]);
+		coordinates.clear();
+		coordinates = bm::expander(board.history[board.getTurn()-1].flippedDiscs);
+		for (int i = 0; i < coordinates.size(); ++i) {
+			bm::outputCoordinate(coordinates[i]);
+		}
+		std::cout << '\n';
 		return;
 	};
 private:
