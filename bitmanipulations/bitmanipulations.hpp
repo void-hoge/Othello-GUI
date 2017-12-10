@@ -7,6 +7,12 @@
 typedef unsigned long long uint64;
 
 namespace bitmanipulations{
+inline void outputCoordinate(int n){
+	std::cout << n / 8 << ',';
+	std::cout << n % 8 << ' ';
+	return;
+}
+
 inline uint64 deltaSwap(uint64 bits, uint64 mask, int delta) {
 uint64 x = (bits ^ ((uint64)bits >> delta)) & mask;
 	return bits ^ x ^ ((uint64)x << delta);

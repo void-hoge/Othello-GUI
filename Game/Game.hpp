@@ -4,12 +4,7 @@
 #include "../AI/AlphaBetaAI/AlphaBetaAI.hpp"
 #include "../Player/Player.hpp"
 #include <iostream>
-
-inline void outputCoordinate(int n){
-	std::cout << n / 8 << ',';
-	std::cout << n % 8 << ' ';
-	return;
-}
+#include "../bitmanipulations/bitmanipulations.hpp"
 
 class Game{
 private:
@@ -33,11 +28,11 @@ public:
 		std::vector<int> coordinates;
 		std::cout << board.history[board.getTurn()-1].putColor << '\n';
 		coordinates = bm::expander(board.history[board.getTurn()-1].putPos);
-		outputCoordinate(coordinates[0]);
+		bm::outputCoordinate(coordinates[0]);
 		coordinates.clear();
 		coordinates = bm::expander(board.history[board.getTurn()-1].flippedDiscs);
 		for (int i = 0; i < coordinates.size(); ++i) {
-			outputCoordinate(coordinates[i]);
+			bm::outputCoordinate(coordinates[i]);
 		}
 		std::cout << '\n';
 		return;
