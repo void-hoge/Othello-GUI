@@ -18,10 +18,12 @@ public:
 	}
 	void aiMove(){
 		ai->move(board);
+		showLog();
 		return;
 	}
 	void playerMove(){
 		player.move(board);
+		showLog();
 		return;
 	}
 	void show(){
@@ -29,6 +31,23 @@ public:
 	}
 	bool isGameover(){
 		return board.isGameover();
+	}
+	void showLog(){
+		if (board.history[board.getTurn()-1].pass == true) {
+			std::cout << "pass" << '\n';
+			return;
+		}
+		std::cout << "move" << '\n';
+		std::vector<int> coordinates;
+		std::cout << board.history[board.getTurn()-1].putColor << '\n';
+		coordinates = bm::expander(board.history[board.getTurn()-1].putPos);
+		bm::outputCoordinate(coordinates[0]);
+		coordinates.clear();
+		coordinates = bm::expander(board.history[board.getTurn()-1].flippedDiscs);
+		for (int i = 0; i < coordinates.size(); ++i) {
+			bm::outputCoordinate(coordinates[i]);
+		}
+		std::cout << '\n';
 	}
 };
 
