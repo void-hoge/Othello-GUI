@@ -36,6 +36,7 @@ public:
 		}
 		if (bm::bitCount(mobility) == 1){
 			board.putDisc(mobility);
+			std::cout << "move" << '\n';
 			return;
 		}
 		int limit;
@@ -65,6 +66,7 @@ public:
 		delete Eval;
 		Eval = NULL;
 		board.putDisc(p);
+		std::cout << "move" << '\n';
 		return;
 	};
 private:

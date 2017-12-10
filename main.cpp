@@ -9,8 +9,8 @@ int main(int argc, char const *argv[]) {
 	game.showBoard();
 	// game.show();
 	while (!game.isGameover()) {
-		// game.playerMove();
-		game.aiMove();
+		game.playerMove();
+		// game.aiMove();
 		// game.show();
 		if (game.isGameover()) {
 			break;

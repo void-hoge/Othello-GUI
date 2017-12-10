@@ -52,7 +52,6 @@ public:
 			std::cout << "pass" << '\n';
 			return;
 		}
-		std::cout << "move" << '\n';
 		std::vector<int> coordinates;
 		std::cout << board.history[board.getTurn()-1].putColor << '\n';
 		coordinates = bm::expander(board.history[board.getTurn()-1].putPos);

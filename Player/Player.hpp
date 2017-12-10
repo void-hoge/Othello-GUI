@@ -12,6 +12,7 @@ public:
 			board.pass();
 			return;
 		}
+		std::cout << "move" << '\n';
 		int x,y;
 		hoge:;
 		std::cin >> x >> y;
