@@ -58,6 +58,10 @@ public:
 		std::free(movablesArray);
 	}
 
+	uint64 getBoard(color c) const{
+		return data[c];
+	};
+
 	bool isGameover() const{
 		if ((checkMobility(white) | checkMobility(black)) == 0){
 			return true;

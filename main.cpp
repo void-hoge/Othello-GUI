@@ -6,6 +6,7 @@
 
 int main(int argc, char const *argv[]) {
 	Game game;
+	game.showBoard();
 	// game.show();
 	while (!game.isGameover()) {
 		// game.playerMove();

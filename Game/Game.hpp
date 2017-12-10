@@ -4,6 +4,7 @@
 #include "../AI/AlphaBetaAI/AlphaBetaAI.hpp"
 #include "../Player/Player.hpp"
 #include <iostream>
+#include "vector"
 #include "../bitmanipulations/bitmanipulations.hpp"
 
 class Game{
@@ -13,8 +14,22 @@ public:
 	Game() : ai(new AlphaBetaAI()){}
 	AI *ai;
 	Player player;
-	void setParam(){
-
+	void showBoard(){
+		std::vector<int> white_board;
+		white_board = bm::expander(board.getBoard(white));
+		std::cout << white << '\n';
+		for (int i = 0; i < white_board.size(); i++) {
+			bm::outputCoordinate(white_board[i]);
+		}
+		std::cout << '\n';
+		std::vector<int> black_board;
+		black_board = bm::expander(board.getBoard(black));
+		std::cout << black << '\n';
+		for (int i = 0; i < black_board.size(); i++) {
+			bm::outputCoordinate(black_board[i]);
+		}
+		std::cout << '\n';
+		return;
 	}
 	void aiMove(){
 		ai->move(board);
