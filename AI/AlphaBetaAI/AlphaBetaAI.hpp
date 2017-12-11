@@ -23,7 +23,6 @@ public:
 		param.push_back(1);
 		param.push_back(1);
 		param.push_back(1);
-		param.push_back(1);
 	};
 	AlphaBetaAI(std::vector<int> param) : param(param){
 	};
@@ -43,7 +42,7 @@ public:
 		Eval = new MidEvaluator(param);
 		sort(board, presearchDepth);
 		int eval, alpha = -intmax, beta = intmax;
-		uint64 p = 0;
+		posEval p;
 		if (bm::bitCount(board.getBlank()) <= wldDepth){
 			limit = intmax;
 			if (bm::bitCount(board.getBlank()) <= perfectDepth) {
@@ -60,17 +59,18 @@ public:
 			board.undo();
 			if (eval > alpha){
 				alpha = eval;
-				p = board.currentPoint[i].pos;
+				p = board.currentPoint[i];
 			}
 		}
 		delete Eval;
 		Eval = NULL;
-		board.putDisc(p);
+		board.putDisc(p.pos);
 		std::cout << "move" << '\n';
 		return;
 	};
 private:
 	std::vector<int> param;
+	Evaluator* Eval;
 	void sort(Board& board, const int limit){
 		for (int i = 0; i < board.getMovableSize(); ++i){
 			int eval;
@@ -110,7 +110,6 @@ private:
 		}
 		return alpha;
 	};
-	Evaluator* Eval;
 };
 
 #endif //ALPHABETAAI_HPP_INCLUDED
