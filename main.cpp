@@ -7,30 +7,25 @@
 void sente(){
 	Game game;
 	game.showBoard();
-	game.show();
 	while (!game.isGameover()) {
 		game.playerMove();
-		game.show();
 		if (game.isGameover()) {
 			break;
 		}
 		game.aiMove();
-		game.show();
 	}
 	std::cout << "end" << '\n';
 }
 
 void gote(){
 	Game game;
-	game.show();
+	game.showBoard();
 	while (!game.isGameover()) {
 		game.aiMove();
-		game.show();
 		if (game.isGameover()) {
 			break;
 		}
 		game.playerMove();
-		game.show();
 	}
 	std::cout << "end" << '\n';
 }
