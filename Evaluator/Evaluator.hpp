@@ -12,9 +12,7 @@ public:
 	Evaluator(){
 		weight.push_back(1);
 		weight.push_back(1);
-		weight.push_back(1);
-		weight.push_back(1);
-		weight.push_back(1);
+		weight.push_back(16);
 	};
 	Evaluator(std::vector<int> param){
 		weight = param;

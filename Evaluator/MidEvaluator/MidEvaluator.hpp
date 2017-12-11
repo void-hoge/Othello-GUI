@@ -9,9 +9,10 @@ class MidEvaluator : public Evaluator{
 public:
 	MidEvaluator(std::vector<int> param) : Evaluator(param){};
 	int evaluate(const Board& board){
-		int mobilityScore = bm::bitCount(board.checkMobility(board.getCurrentColor()));
-		int confirmedCellsScore = bm::bitCount(board.getConfirmedDiscs(board.getCurrentColor())) -  bm::bitCount(board.getConfirmedDiscs(1-board.getCurrentColor()));
-		return mobilityScore*weight[0] + confirmedCellsScore*weight[1];
+		int mobility = bm::bitCount(board.checkMobility(board.getCurrentColor())) - bm::bitCount(board.checkMobility(1-board.getCurrentColor()));
+		int stable = bm::bitCount(board.getStableDiscs(board.getCurrentColor())) -  bm::bitCount(board.getStableDiscs(1-board.getCurrentColor()));
+		int corner = bm::bitCount(board.getCornerDiscs(board.getCurrentColor())) - bm::bitCount(board.getCornerDiscs(1-board.getCurrentColor()));
+		return mobility*weight[0] + stable*weight[1] + corner*weight[2];
 	};
 };
 

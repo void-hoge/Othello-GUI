@@ -198,7 +198,7 @@ public:
 		currentPoint = movablesArray;
 		return;
 	};
-	uint64 getConfirmedDiscs(color c) const{
+	uint64 getStableDiscs(color c) const{
 		using namespace bm;
 		uint64 left = data[c] & 0xFF000000000000FF;
 		uint64 s = left + 0x0100000000000001;
@@ -217,6 +217,9 @@ public:
 		lower = (lower ^ s) & ~s;
 
 		return left + right + upper + lower;
+	};
+	uint64 getCornerDiscs(color c) const{
+		return data[c] & 0x8100000000000018;
 	};
 	int countDiscs(const color c) const{
 		return bitmanipulations::bitCount(data[c]);

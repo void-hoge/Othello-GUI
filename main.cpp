@@ -7,16 +7,16 @@
 int main(int argc, char const *argv[]) {
 	Game game;
 	game.showBoard();
-	// game.show();
+	game.show();
 	while (!game.isGameover()) {
 		game.playerMove();
 		// game.aiMove();
-		// game.show();
+		game.show();
 		if (game.isGameover()) {
 			break;
 		}
 		game.aiMove();
-		// game.show();
+		game.show();
 	}
 	std::cout << "end" << '\n';
 	return 0;
